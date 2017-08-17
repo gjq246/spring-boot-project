@@ -2,7 +2,7 @@
 <!DOCTYPE generatorConfiguration
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
-<!-- 通过 Maven 插件集成的，所以运行插件使用下面的命令：mvn mybatis-generator:generate -->
+<!-- 通过 Maven 插件集成的，所以运行插件使用下面的命令：mvn mybatis-generator:generate 注意xml多导会重复，需要自己删除-->
 <generatorConfiguration>
     <properties resource="application.properties"/>
 
