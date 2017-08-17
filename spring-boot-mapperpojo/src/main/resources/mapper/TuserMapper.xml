@@ -1,22 +1,40 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.kpttech.mapper.TuserMapper" >
-  <resultMap id="BaseResultMap" type="com.kpttech.pojo.Tuser" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kpttech.mapper.TuserMapper">
+  <resultMap id="BaseResultMap" type="com.kpttech.pojo.Tuser">
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="cid" property="cid" jdbcType="CHAR" />
-    <result column="cusername" property="cusername" jdbcType="VARCHAR" />
-    <result column="iuserage" property="iuserage" jdbcType="INTEGER" />
-    <result column="busercommunist" property="busercommunist" jdbcType="INTEGER" />
-    <result column="fuserscore" property="fuserscore" jdbcType="DECIMAL" />
-    <result column="suersex" property="suersex" jdbcType="VARCHAR" />
-    <result column="ruserintroduce" property="ruserintroduce" jdbcType="VARCHAR" />
-    <result column="duserbirthday" property="duserbirthday" jdbcType="DATE" />
-    <result column="buserenable" property="buserenable" jdbcType="INTEGER" />
-    <result column="tuseraddtime" property="tuseraddtime" jdbcType="TIMESTAMP" />
-    <result column="tuserupdatetime" property="tuserupdatetime" jdbcType="TIMESTAMP" />
-    <result column="muserremark" property="muserremark" jdbcType="VARCHAR" />
-    <result column="uuserphoto" property="uuserphoto" jdbcType="LONGVARCHAR" />
+    <id column="cid" jdbcType="CHAR" property="cid" />
+    <result column="cusername" jdbcType="VARCHAR" property="cusername" />
+    <result column="iuserage" jdbcType="INTEGER" property="iuserage" />
+    <result column="busercommunist" jdbcType="INTEGER" property="busercommunist" />
+    <result column="fuserscore" jdbcType="DECIMAL" property="fuserscore" />
+    <result column="suersex" jdbcType="VARCHAR" property="suersex" />
+    <result column="ruserintroduce" jdbcType="VARCHAR" property="ruserintroduce" />
+    <result column="duserbirthday" jdbcType="DATE" property="duserbirthday" />
+    <result column="buserenable" jdbcType="INTEGER" property="buserenable" />
+    <result column="tuseraddtime" jdbcType="TIMESTAMP" property="tuseraddtime" />
+    <result column="tuserupdatetime" jdbcType="TIMESTAMP" property="tuserupdatetime" />
+    <result column="muserremark" jdbcType="VARCHAR" property="muserremark" />
+    <result column="uuserphoto" jdbcType="LONGVARCHAR" property="uuserphoto" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.kpttech.pojo.Tuser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="cid" jdbcType="CHAR" property="cid" />
+    <result column="cusername" jdbcType="VARCHAR" property="cusername" />
+    <result column="iuserage" jdbcType="INTEGER" property="iuserage" />
+    <result column="busercommunist" jdbcType="INTEGER" property="busercommunist" />
+    <result column="fuserscore" jdbcType="DECIMAL" property="fuserscore" />
+    <result column="suersex" jdbcType="VARCHAR" property="suersex" />
+    <result column="ruserintroduce" jdbcType="VARCHAR" property="ruserintroduce" />
+    <result column="duserbirthday" jdbcType="DATE" property="duserbirthday" />
+    <result column="buserenable" jdbcType="INTEGER" property="buserenable" />
+    <result column="tuseraddtime" jdbcType="TIMESTAMP" property="tuseraddtime" />
+    <result column="tuserupdatetime" jdbcType="TIMESTAMP" property="tuserupdatetime" />
+    <result column="muserremark" jdbcType="VARCHAR" property="muserremark" />
+    <result column="uuserphoto" jdbcType="LONGVARCHAR" property="uuserphoto" />
   </resultMap>
 </mapper>

@@ -1,10 +1,148 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>spring-boot-project</groupId>
-    <artifactId>spring-boot-project</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>spring-boot-web</artifactId>
-  
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>spring-boot-project</groupId>
+		<artifactId>spring-boot-project</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>spring-boot-web</artifactId>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+
+		<!-- 服务打包 -->
+		<!-- <dist.dir>${project.build.directory}/dist</dist.dir> <dist.project.id>${project.artifactId}</dist.project.id> 
+			<dist.project.name>GJQ-Spring-Boot-App</dist.project.name> <dist.project.description> 
+			GJQ Spring boot 项目打包测试 </dist.project.description> <dist.start.class>cn.demo.Application</dist.start.class> 
+			<dist.jmx.port>50201</dist.jmx.port> -->
+		<!-- 服务打包 -->
+
+	</properties>
+
+	<dependencies>
+	
+ 	    <dependency>
+			<groupId>spring-boot-project</groupId>
+			<artifactId>spring-boot-mapperpojo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		
+ 		<dependency>
+			<groupId>spring-boot-project</groupId>
+			<artifactId>spring-boot-pagepojo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency> 
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- 服务打包 -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-actuator</artifactId> 
+			</dependency> <dependency> <groupId>com.sun.winsw</groupId> <artifactId>winsw</artifactId> 
+			<classifier>bin</classifier> <type>exe</type> <scope>provided</scope> </dependency> 
+			<dependency> <groupId>commons-daemon</groupId> <artifactId>commons-daemon</artifactId> 
+			</dependency> <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot</artifactId> 
+			</dependency> -->
+		<!-- 服务打包 -->
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+			<!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
+		</dependency>
+
+		<!-- ueditor -->
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20170516</version>
+		</dependency>
+		<!-- ueditor -->
+
+	</dependencies>
+
+<!-- 	<dependencyManagement> -->
+
+
+		<!-- 服务打包 -->
+		<!-- <dependencies> <dependency> <groupId>commons-daemon</groupId> <artifactId>commons-daemon</artifactId> 
+			<version>1.0.15</version> </dependency> <dependency> <groupId>com.sun.winsw</groupId> 
+			<artifactId>winsw</artifactId> <version>1.18</version> <classifier>bin</classifier> 
+			<type>exe</type> </dependency> </dependencies> -->
+		<!-- 服务打包 -->
+
+
+<!-- 	</dependencyManagement> -->
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+					<!-- 如果没有该项配置，肯定devtools不会起作用，即应用不会restart -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- 服务打包 java环境需要独立安装 -->
+	<!-- <build> <plugins> <plugin> <groupId>org.apache.maven.plugins</groupId> 
+		<artifactId>maven-dependency-plugin</artifactId> <version>2.10</version> 
+		<executions> <execution> <id>copy</id> <phase>package</phase> <goals> <goal>copy</goal> 
+		</goals> <configuration> <artifactItems> <artifactItem> <groupId>com.sun.winsw</groupId> 
+		<artifactId>winsw</artifactId> <classifier>bin</classifier> <type>exe</type> 
+		<destFileName>service.exe</destFileName> </artifactItem> </artifactItems> 
+		<outputDirectory>${dist.dir}</outputDirectory> </configuration> </execution> 
+		</executions> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
+		<artifactId>maven-resources-plugin</artifactId> <version>2.7</version> <executions> 
+		<execution> <id>copy-resources</id> <phase>process-resources</phase> <goals> 
+		<goal>copy-resources</goal> </goals> <configuration> <outputDirectory>${dist.dir}</outputDirectory> 
+		<resources> <resource> <directory>src/main/dist</directory> <filtering>true</filtering> 
+		</resource> </resources> </configuration> </execution> </executions> </plugin> 
+		<plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> 
+		<version>2.5.5</version> <configuration> <descriptors> <descriptor>src/main/assembly/unix.xml</descriptor> 
+		<descriptor>src/main/assembly/windows.xml</descriptor> </descriptors> </configuration> 
+		<executions> <execution> <id>assembly</id> <phase>package</phase> <goals> 
+		<goal>single</goal> </goals> </execution> </executions> </plugin> </plugins> 
+		</build> -->
+	<!-- 服务打包 -->
+
 </project>

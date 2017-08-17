@@ -103,7 +103,7 @@
 
 	<build>
 		<plugins>
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<dependencies>
@@ -113,7 +113,7 @@
 						<version>1.2.5.RELEASE</version>
 					</dependency>
 				</dependencies>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>
