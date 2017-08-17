@@ -12,15 +12,4 @@
     <result column="tdepartmentupdatetime" jdbcType="TIMESTAMP" property="tdepartmentupdatetime" />
     <result column="mdepartmentremark" jdbcType="VARCHAR" property="mdepartmentremark" />
   </resultMap>
-  <resultMap id="BaseResultMap" type="com.kpttech.pojo.Tdepartment">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="cid" jdbcType="CHAR" property="cid" />
-    <result column="cdepartmentname" jdbcType="VARCHAR" property="cdepartmentname" />
-    <result column="bdepartmentenable" jdbcType="INTEGER" property="bdepartmentenable" />
-    <result column="tdepartmentaddtime" jdbcType="TIMESTAMP" property="tdepartmentaddtime" />
-    <result column="tdepartmentupdatetime" jdbcType="TIMESTAMP" property="tdepartmentupdatetime" />
-    <result column="mdepartmentremark" jdbcType="VARCHAR" property="mdepartmentremark" />
-  </resultMap>
 </mapper>
