@@ -14,5 +14,6 @@
 
 	<modules>
 		<module>spring-boot-mapperpojo</module>
+		<module>spring-boot-web</module>
 	</modules>
 </project>
