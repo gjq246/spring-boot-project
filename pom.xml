@@ -16,5 +16,7 @@
 		<module>spring-boot-mapperpojo</module>
 		<module>spring-boot-web</module>
 		<module>spring-boot-pagepojo</module>
+		<module>spring-boot-service</module>
+		<module>spring-boot-common</module>
 	</modules>
 </project>
