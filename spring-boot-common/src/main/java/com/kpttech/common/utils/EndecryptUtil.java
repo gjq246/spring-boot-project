@@ -17,7 +17,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESedeKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
-import org.apache.log4j.Logger;
+
 
 
 /**
@@ -63,7 +63,6 @@ import org.apache.log4j.Logger;
  * 
  */
 public class EndecryptUtil {
-	private static final Logger logger = Logger.getLogger(EndecryptUtil.class);
 
 	private static String SPKEY = "kpttech123";
 	private static String svr_prikey;

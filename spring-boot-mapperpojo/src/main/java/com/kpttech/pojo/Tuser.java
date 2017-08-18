@@ -53,6 +53,11 @@ public class Tuser {
     private String muserremark;
 
     /**
+     * 部门id
+     */
+    private String cuserdepartmentid;
+
+    /**
      * 用户头像
      */
     private String uuserphoto;
@@ -251,6 +256,24 @@ public class Tuser {
      */
     public void setMuserremark(String muserremark) {
         this.muserremark = muserremark;
+    }
+
+    /**
+     * 获取部门id
+     *
+     * @return cuserdepartmentid - 部门id
+     */
+    public String getCuserdepartmentid() {
+        return cuserdepartmentid;
+    }
+
+    /**
+     * 设置部门id
+     *
+     * @param cuserdepartmentid 部门id
+     */
+    public void setCuserdepartmentid(String cuserdepartmentid) {
+        this.cuserdepartmentid = cuserdepartmentid;
     }
 
     /**

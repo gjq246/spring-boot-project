@@ -1,10 +1,12 @@
 package com.kpttech.web;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
-@SpringBootApplication
+@MapperScan(basePackages = "com.kpttech.mapper")
+@SpringBootApplication(scanBasePackages = "com.kpttech.service,com.kpttech.web.controller")
 @ServletComponentScan
 public class Application {
 

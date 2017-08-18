@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <!-- 通过 Maven 插件集成的，所以运行插件使用下面的命令：mvn mybatis-generator:generate 注意xml多导会重复，需要自己删除，解决方法：
-     mappertemp为生成目录，mapper为正式使用目录，要手动复制过去-->
+     mappertemp为生成目录，mapper为正式使用目录，要手动复制过去;com.kpttech.mappertemp为java生成代码，方法同xml-->
 <generatorConfiguration>
     <properties resource="application.properties"/>
 
@@ -25,7 +25,7 @@
 
         <sqlMapGenerator targetPackage="mappertemp" targetProject="src/main/resources"/>
 
-        <javaClientGenerator targetPackage="com.kpttech.mapper" targetProject="src/main/java"
+        <javaClientGenerator targetPackage="com.kpttech.mappertemp" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
         <table tableName="%">

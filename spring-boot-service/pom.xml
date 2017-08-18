@@ -14,6 +14,11 @@
 			<groupId>spring-boot-project</groupId>
 			<artifactId>spring-boot-mapperpojo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>		
+		<dependency>
+			<groupId>spring-boot-project</groupId>
+			<artifactId>spring-boot-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		
 		<dependency>

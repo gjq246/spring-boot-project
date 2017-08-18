@@ -10,8 +10,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -33,7 +33,7 @@ public class ExcelReader {
      * @param InputStream
      * @return String 表头内容的数组
      */
-    private static final Logger logger=Logger.getLogger(ExcelReader.class);
+    private static final Logger logger=Logger.getLogger(ExcelReader.class.getName());
     public String[] readExcelTitle(InputStream is) {
         try {
             fs = new POIFSFileSystem(is);
@@ -108,13 +108,13 @@ public class ExcelReader {
      */
     private String getStringCellValue(HSSFCell cell) {
         String strCell = "";
-        logger.info(cell.getCellType());
+        logger.info(String.valueOf(cell.getCellType()));
         switch (cell.getCellType()) {
         case HSSFCell.CELL_TYPE_STRING:
             strCell = cell.getStringCellValue();
             break;
         case HSSFCell.CELL_TYPE_NUMERIC:
-        	 logger.info(cell.getNumericCellValue());
+        	 logger.info(String.valueOf(cell.getNumericCellValue()));
             strCell = String.valueOf(cell.getNumericCellValue());
             break;
         case HSSFCell.CELL_TYPE_BOOLEAN:
