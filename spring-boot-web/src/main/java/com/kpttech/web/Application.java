@@ -3,13 +3,25 @@ package com.kpttech.web;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.converter.HttpMessageConverter;
+
+import com.kpttech.common.utils.MappingFastJsonHttpMessageConverter;
 
 @MapperScan(basePackages = "com.kpttech.mapper")
 @SpringBootApplication(scanBasePackages = "com.kpttech.service,com.kpttech.web.controller")
 @ServletComponentScan
 public class Application {
 
+	@Bean
+    public HttpMessageConverters fastJsonHttpMessageConverters() {
+	   MappingFastJsonHttpMessageConverter fastConverter = new MappingFastJsonHttpMessageConverter();
+       HttpMessageConverter<?> converter = fastConverter;
+       return new HttpMessageConverters(converter);
+    }
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SpringApplication.run(Application.class, args);
