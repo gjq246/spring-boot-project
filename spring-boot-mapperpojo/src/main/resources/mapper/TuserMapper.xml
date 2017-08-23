@@ -25,6 +25,7 @@
   <select id="getUserList" parameterType="com.kpttech.pagepojo.User"   
 								resultType="com.kpttech.pagepojo.User">
 		SELECT
+		    a.cid as cid,
 			a.cusername as cusername,
 			a.iuserage as iuserage,
 			a.busercommunist as busercommunist,

@@ -11,16 +11,20 @@ import org.springframework.http.converter.HttpMessageConverter;
 import com.kpttech.common.utils.MappingFastJsonHttpMessageConverter;
 
 @MapperScan(basePackages = "com.kpttech.mapper")
-@SpringBootApplication(scanBasePackages = "com.kpttech.service,com.kpttech.web.controller")
+@SpringBootApplication(scanBasePackages = "com.kpttech.service,com.kpttech.web")
 @ServletComponentScan
 public class Application {
 
+	/**
+	 * 日期传出去转换
+	 * @return
+	 */
 	@Bean
-    public HttpMessageConverters fastJsonHttpMessageConverters() {
-	   MappingFastJsonHttpMessageConverter fastConverter = new MappingFastJsonHttpMessageConverter();
-       HttpMessageConverter<?> converter = fastConverter;
-       return new HttpMessageConverters(converter);
-    }
+	public HttpMessageConverters fastJsonHttpMessageConverters() {
+		MappingFastJsonHttpMessageConverter fastConverter = new MappingFastJsonHttpMessageConverter();
+		HttpMessageConverter<?> converter = fastConverter;
+		return new HttpMessageConverters(converter);
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

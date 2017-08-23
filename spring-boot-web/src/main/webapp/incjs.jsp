@@ -46,12 +46,4 @@
     <script src="<%=contextPath%>/jslib/app/app.js"></script>
     <script src="<%=contextPath%>/jslib/app/directive.js"></script>
     <script src="<%=contextPath%>/jslib/app/filter.js"></script>
-    <script src="<%=contextPath%>/jslib/app/controller/menuController.js"></script>
-    <script src="<%=contextPath%>/jslib/app/service/menuService.js"></script>
-    <script src="<%=contextPath%>/jslib/app/controller/headController.js"></script>
-    <script src="<%=contextPath%>/jslib/app/service/loginService.js"></script>
-    <script src="<%=contextPath%>/jslib/app/service/studentService.js"></script>
-	<script src="<%=contextPath%>/jslib/app/service/teacherService.js"></script>
-	<script src="<%=contextPath%>/jslib/app/service/systemuserService.js"></script>
-	<script src="<%=contextPath%>/jslib/app/service/departmentworkflowService.js"></script>
-	<script src="<%=contextPath%>/jslib/app/service/messageService.js"></script>
+

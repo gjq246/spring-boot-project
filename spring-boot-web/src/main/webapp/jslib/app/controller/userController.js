@@ -2,7 +2,7 @@ angular.module('Thesis')
     .controller('userCtrl', ['$scope', '$timeout', 'userService','Configure','$cookieStore','Upload', function ($scope, $timeout, userService,Configure,$cookieStore,Upload) {
         
     	$scope.userList = [];
-    	$scope.usersearchKey="userName";//默认查询字段名称
+    	$scope.usersearchKey="cusername";//默认查询字段名称
     	$scope.usersearchValue="";
     	$scope.userDataTable={};//表格对象
     	//user对象用来跟action做模型映射,可以从pageModel中的属性复制过来,加上默认值，注意分类,ids专门用来删除（主键逗号隔开）
@@ -49,55 +49,55 @@ angular.module('Thesis')
  					//有排序功能必须指定name为字段名称
 
                   ],
-                  "order": [[3, 'asc']]
+                  "order": [[3, 'desc']]
         	});
         	
         	//初始化验证控件
         	$("#userForm").validate({
                 rules: {
-                	userUsername: {
-                		required:true,
-                		minlength: 3,
-                		maxlength: 16,
-                		remote: {
-                            type: "post", 
-                            url: "/manager/user/checkUser.action",       //发送请求的url地址
-                            data: {
-                                username: function() {
-                                    return $("#userUsername").val(); 
-                                }
-                            },
-                            dataType: "html",        //发送的数据类型
-                            dataFilter: function(data, type) { //返回结果
-                                if (data == "true")
-                                    return true;
-                                else
-                                    return false;
-                            }
-                        }
-                	},
-                	userName: "required",
-                	userPwd: {
-                		required:true,
-                		minlength:6,
-                	},
-                	userRepwd: {
-                		required:true,
-                		minlength:6,
-                		equalTo:"#userPwd"
-                	}
+//                	userUsername: {
+//                		required:true,
+//                		minlength: 3,
+//                		maxlength: 16,
+//                		remote: {
+//                            type: "post", 
+//                            url: "/manager/user/checkUser.action",       //发送请求的url地址
+//                            data: {
+//                                username: function() {
+//                                    return $("#userUsername").val(); 
+//                                }
+//                            },
+//                            dataType: "html",        //发送的数据类型
+//                            dataFilter: function(data, type) { //返回结果
+//                                if (data == "true")
+//                                    return true;
+//                                else
+//                                    return false;
+//                            }
+//                        }
+//                	},
+                	cusername: "required",
+//                	userPwd: {
+//                		required:true,
+//                		minlength:6,
+//                	},
+//                	userRepwd: {
+//                		required:true,
+//                		minlength:6,
+//                		equalTo:"#userPwd"
+//                	}
                 },
                 messages: {
-                	userName: "请输入姓名",
-                	userPwd:{
-                		required:"请输入密码",
-                		minlength:"密码长度不能少于6位",
-                	},
-                	userRepwd:{
-                		required:"请输入确认密码",
-                		minlength:"密码长度不能少于6位",
-                		equalTo:"两次密码不一致"
-                	},
+                	cusername: "请输入姓名",
+//                	userPwd:{
+//                		required:"请输入密码",
+//                		minlength:"密码长度不能少于6位",
+//                	},
+//                	userRepwd:{
+//                		required:"请输入确认密码",
+//                		minlength:"密码长度不能少于6位",
+//                		equalTo:"两次密码不一致"
+//                	},
                 	
                 }
             });
@@ -126,11 +126,7 @@ angular.module('Thesis')
         	$scope.modalTitle="添加用户";
         	$scope.pwdenable=false;
         	// 初始化-模型
-        	$scope.user = {userId:'', userUsername:'', userAddtime:'', userName:'', userSex:'男', userAge:'',userState:'',
-        			userPwd:'',userRepwd:'',userMail:'', userPhone:'', userQq:'', userPhoto:'', userDistributionrank:'',
-        			userParentid:'', userParentname:'', userIsdistribution:0, userWxopenid:'', userWxnickname:'',
-        			userWxprovince:'', userWxcity:'', userWxcountry:'', userWxprivilege:'', userWxunionid:'',
-        			userAddtime:'', userUpdatetime:'', userRemark:'', ids:'', isdelete:0, userEnable:1};
+        	$scope.user = {cid:'', cusername:'', tuserupdatetime:'2017-08-23 16:03:59', cdepartmentname:'',ids:''};
         	
         	$("#userModal").modal('show');
         };
@@ -149,13 +145,17 @@ angular.module('Thesis')
         	}
         	
         	var temp = {};
-        	temp.userId = checkboxlist[0].value;
+        	temp.cid = checkboxlist[0].value;
         	temp.token = $cookieStore.get("token");
         	$("#photo").empty();
+        	
+        	log(11);
         	//
         	userService.getSingleUser(temp).then(function(data) {
+        		log(22);
         		if(data.success)
         		{
+        			log(data.obj);
         			angular.copy(data.obj,$scope.user);
         			$scope.user.userRepwd=$scope.user.userPwd;
         			var s="<img alt='' src='"+$scope.user.userPhoto+"' height='99' width='99'>";
@@ -237,56 +237,7 @@ angular.module('Thesis')
         	
         	$("#infoModal").modal('show');
         };
-        
-        // review modal
-        $scope.reviewModal=function(){
-        	// 数据初始化 
-        	$scope.user.userState = "";
-        	
-        	var checkboxlist=$("#userDataTable tbody :checked");
-        	if(checkboxlist.length!=1){
-        		toastr.error("请选择一条记录修改", '选择记录错误!');
-        		return;
-        	}
-        	var id=checkboxlist[0].value;
-        	//找出json中的原始数据
-        	$scope.user.ids = id;
-        	var data = $scope.userDataTable.ajax.json().data;
-        	for(var i=0;i<data.length;i++) {
-        		if(data[i].userId == id) {
-        			$scope.user.userState = data[i].userState; // 初始化
-        			//log($scope.user.userState);
-        		}
-        	}
-        	
-        	$("#reviewModal").modal('show');
-        };
-        
-        // lotReview Modal
-        $scope.lotReviewModal=function(){
-        	// 数据初始化
-        	$scope.user.userState = "";
-        	
-       	    var checkboxlist=$("#userDataTable tbody :checked");
-   	       	if(checkboxlist.length<=0){
-   	       		toastr.error("请选择需要审核的记录", '选择记录错误!');
-   	       		return;
-   	       	}
-   	       
-   	       	var ids="";
-           	$.each(checkboxlist, function(n, cb) {  
-           		ids+=cb.value+",";  
-               }); 
-           	if(ids.length>0){
-           	  ids=ids.substring(0,ids.length-1);
-           	} 
-           	$scope.user.ids=ids;
-           	$scope.user.userState="通过";
-           	//log($scope.user.userState);
-           	$("#lotReviewModal").modal("show");
-          };
-          
-          
+                
          
         
         //---------------------modal end-------------------------------
@@ -334,7 +285,7 @@ angular.module('Thesis')
         	
         	if ($("#userForm").valid()) { 
         		if ($scope.modalTitle=="添加用户") { // do add
-
+                    log($scope.user);
     				userService.add($scope.user).then(function (data) {   	       				
                 		if (data.success) {
                 			

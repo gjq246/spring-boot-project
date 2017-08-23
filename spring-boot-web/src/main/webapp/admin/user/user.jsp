@@ -20,12 +20,12 @@
     <div id="wrapper">
                
         <!-- 左侧菜单 -->
-        <jsp:include page="/menu.jsp"/>
+        
 
         <div id="page-wrapper" class="gray-bg dashbard-1">
         
             <!-- 头部导航 -->
-            <jsp:include page="/head.jsp"/>
+            
             
             <div class="row">
             
@@ -77,7 +77,7 @@
 		                           			<label>搜索：
 		           							<select id="searchCol" ng-model="usersearchKey">
 		           							<!-- value为查找字段名称 -->
-		           							<option value="userName">姓名</option>
+		           							<option value="cusername">姓名</option>
 		           							</select>
 		           							</label>
 		           							<input id="keyuser" type="search" class="" ng-model="usersearchValue" placeholder="关键字" />
@@ -129,17 +129,17 @@
 							    	<div class="col-md-6">
 								        <label class="col-sm-4 control-label"><font color="#FF0000">*</font>用户名：</label>
 								        <div class="col-sm-8">
-								            <input class="form-control" type="text" name="userUserName" id="userUserName" 
-								            		placeholder="请输入用户名" ng-model="user.userUsername"/>
+								            <input class="form-control" type="text" name="cusername" id="cusername" 
+								            		placeholder="请输入用户名" ng-model="user.cusername"/>
 								            <span class="help-block m-b-none"></span>
 								        </div>
-								        <label class="col-sm-4 control-label"><font color="#FF0000">*</font>真实姓名:</label>
+								        <label class="col-sm-4 control-label">真实姓名:</label>
 								        <div class="col-sm-8">
 								            <input class="form-control" type="text" name="userName" id="userName" 
 								            		placeholder="请输入姓名" ng-model="user.userName"/>
 								            <span class="help-block m-b-none"></span>
 							            </div>
-							            <label class="col-sm-4 control-label"><font color="#FF0000">*</font>电话号码:</label>
+							            <label class="col-sm-4 control-label">电话号码:</label>
 								        <div class="col-sm-8">
 								            <input class="form-control" type="tel" name="userPhone" id="userPhone" 
 								            		placeholder="请输入电话号码" ng-model="user.userPhone"/>
@@ -147,7 +147,7 @@
 							            </div>
 						            </div>
 						            <div class="col-md-6">
-                                    	<label class="col-sm-4 control-label"><font color="#FF0000">*</font>个人头像：</label>
+                                    	<label class="col-sm-4 control-label">个人头像：</label>
                                      	<div class="col-sm-1" style="height:100px;">&nbsp;</div>
 							        	<div class="col-sm-5" style="height:100px;border:0.3px solid #E0E0E0;" id="photo"></div> 
 							        	<!--  <div class="col-sm-2" style="height:100px;"><button ngf-select="uploadphoto($file)">上传 </button></div>-->
@@ -155,7 +155,7 @@
 							    </div>
 							    <div class="col-md-12">
 								    <div class="col-md-6">
-								    	<label class="col-sm-4 control-label"><font color="#FF0000">*</font>密码：</label>
+								    	<label class="col-sm-4 control-label">密码：</label>
 								    	<div class="col-sm-8">
 								            <input class="form-control" type="password" name="userPwd" id="userPwd"
 								            		placeholder="请输入密码" ng-model="user.userPwd" ng-disabled="pwdenable"/>
@@ -163,7 +163,7 @@
 								        </div>
 							        </div>
 								    <div class="col-md-6">
-								        <label class="col-sm-4 control-label"><font color="#FF0000">*</font>确认密码:</label>
+								        <label class="col-sm-4 control-label">确认密码:</label>
 								        <div class="col-sm-8">
 								            <input class="form-control" type="password" name="userRepwd" id="userRepwd"
 								            		placeholder="请再次输入密码" ng-model="user.userRepwd" ng-disabled="pwdenable"/>

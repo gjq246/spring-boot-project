@@ -1,5 +1,8 @@
 package com.kpttech.web.controller;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -61,6 +64,83 @@ public class UserController {
 		}
 
 		return json;
+	}
+	/* 添加数据 */
+	@RequestMapping("/user/add.action")
+	@ResponseBody
+	public Json addData(HttpServletRequest request, User user) {
+		Json j = new Json();
+		try {
+//			String token = request.getParameter("token");
+//			if (token != null && !token.isEmpty()) {
+
+			    User userNew = userService.saveUser(user);
+				if (userNew != null) {
+					j.setSuccess(true);
+					j.setObj(userNew);
+					j.setMsg("添加成功");
+				} else {
+					j.setSuccess(false);
+					j.setMsg("添加失败");
+				}
+//			}
+		} catch (Exception e) {
+			j.setSuccess(false);
+			j.setMsg(e.getMessage());
+		}
+		return j;
+	}
+
+	/* 修改数据 */
+	@RequestMapping("/user/update.action")
+	@ResponseBody
+	public Json updateData(HttpServletRequest request, User user) {
+		Json j = new Json();
+		try {
+//			String token = request.getParameter("token");
+//			if (token != null && !token.isEmpty()) {
+
+				int count = userService.updateUser(user);
+				if (count == 1) {
+					j.setSuccess(true);
+					j.setMsg("修改成功");
+				} else {
+					j.setSuccess(false);
+					j.setMsg("修改失败");
+				}
+//			}
+
+		} catch (Exception e) {
+			j.setSuccess(false);
+			j.setMsg(e.getMessage());
+		}
+		return j;
+	}
+
+	/* 删除数据 */
+	@RequestMapping("/user/delete.action")
+	@ResponseBody
+	public Json deleteData(HttpServletRequest request, User user) {
+		Json j = new Json();
+		try {
+//			String token = request.getParameter("token");
+			String ids = request.getParameter("ids");
+//			if (token != null && !token.isEmpty()) {
+				int deletecount = userService.deleteUsers(user);
+				if (deletecount > 0) {
+					j.setSuccess(true);
+					j.setMsg("删除完成,成功删除" + deletecount + "条");
+				} else {
+					j.setSuccess(false);
+					j.setMsg("删除失败");
+				}
+//			}
+
+		} catch (Exception e) {
+			j.setSuccess(false);
+			j.setMsg(e.getMessage());
+		}
+		return j;
 	}
 
 }

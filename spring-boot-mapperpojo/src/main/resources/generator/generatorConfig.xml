@@ -8,6 +8,10 @@
     <properties resource="config.properties"/>
 
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+    
+	     <!-- 生成的Java文件的编码 -->
+	    <property name="javaFileEncoding" value="UTF-8"/>
+    
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
 
