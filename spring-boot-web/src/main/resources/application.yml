@@ -1,0 +1,43 @@
+server:
+  port: 8002 #冒号之后必须都要有空格
+logging:
+  level:
+    tk:
+      mybatis: TRACE
+spring:
+  #静态资源映射，C:/tmp/为百度编辑器上传路径
+  mvc:
+    static-path-pattern: /**
+    view:
+      prefix: /templates/
+      suffix: .ftl
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,file:C:/tmp/,file:E:/ssm/spring-boot-project/spring-boot-web/src/main/webapp/
+  #classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:C:/tmp/ ,webapp为网站路径
+  datasource:
+    url: jdbc:mysql://localhost:3306/dbtest
+    username: root
+    password: 
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      stat-view-servlet.allow: true
+   
+  freemarker:
+    cache: false
+  request-context-attribute: request
+mybatis:
+  type-aliases-package: com.kpttech.pojo
+  mapper-locations: classpath:mapper/*.xml
+mapper:
+  mappers: com.kpttech.generator.MyMapper
+  not-empty: false
+  identity: MYSQL
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

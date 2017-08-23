@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kpttech.mappertemp.TdepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.kpttech.pojo.Tdepartment" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="cid" property="cid" jdbcType="CHAR" />
+    <result column="cdepartmentname" property="cdepartmentname" jdbcType="VARCHAR" />
+    <result column="bdepartmentenable" property="bdepartmentenable" jdbcType="INTEGER" />
+    <result column="tdepartmentaddtime" property="tdepartmentaddtime" jdbcType="TIMESTAMP" />
+    <result column="tdepartmentupdatetime" property="tdepartmentupdatetime" jdbcType="TIMESTAMP" />
+    <result column="mdepartmentremark" property="mdepartmentremark" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

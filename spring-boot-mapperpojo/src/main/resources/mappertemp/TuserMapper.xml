@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kpttech.mappertemp.TuserMapper" >
+  <resultMap id="BaseResultMap" type="com.kpttech.pojo.Tuser" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="cid" property="cid" jdbcType="CHAR" />
+    <result column="cusername" property="cusername" jdbcType="VARCHAR" />
+    <result column="iuserage" property="iuserage" jdbcType="INTEGER" />
+    <result column="busercommunist" property="busercommunist" jdbcType="INTEGER" />
+    <result column="fuserscore" property="fuserscore" jdbcType="DECIMAL" />
+    <result column="suersex" property="suersex" jdbcType="VARCHAR" />
+    <result column="ruserintroduce" property="ruserintroduce" jdbcType="VARCHAR" />
+    <result column="duserbirthday" property="duserbirthday" jdbcType="DATE" />
+    <result column="buserenable" property="buserenable" jdbcType="INTEGER" />
+    <result column="tuseraddtime" property="tuseraddtime" jdbcType="TIMESTAMP" />
+    <result column="tuserupdatetime" property="tuserupdatetime" jdbcType="TIMESTAMP" />
+    <result column="muserremark" property="muserremark" jdbcType="VARCHAR" />
+    <result column="cuserdepartmentid" property="cuserdepartmentid" jdbcType="CHAR" />
+    <result column="uuserphoto" property="uuserphoto" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>

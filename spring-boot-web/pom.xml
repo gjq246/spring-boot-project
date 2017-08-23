@@ -119,6 +119,29 @@
 			<optional>true</optional>
 			<!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
 		</dependency>
+		
+		
+		<!-- jsp支持 -->
+		<dependency>
+           <groupId>org.apache.tomcat.embed</groupId>
+           <artifactId>tomcat-embed-jasper</artifactId>
+           <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>jstl-api</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!-- jsp支持 -->
+        
+        <!-- 内存数据库h2 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+        
 
 		<!-- ueditor -->
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
