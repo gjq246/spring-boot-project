@@ -20,12 +20,12 @@
     <div id="wrapper">
                
         <!-- 左侧菜单 -->
-        
+        <jsp:include page="/menu.jsp"/>
 
         <div id="page-wrapper" class="gray-bg dashbard-1">
         
             <!-- 头部导航 -->
-            
+            <jsp:include page="/head.jsp"/>
             
             <div class="row">
             
