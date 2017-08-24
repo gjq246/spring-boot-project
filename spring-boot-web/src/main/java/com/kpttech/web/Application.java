@@ -7,14 +7,17 @@ import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.kpttech.common.utils.MappingFastJsonHttpMessageConverter;
 
-@MapperScan(basePackages = "com.kpttech.mapper")
 @SpringBootApplication(scanBasePackages = "com.kpttech.service,com.kpttech.web")
+@EnableTransactionManagement//如果mybatis中service实现类中加入事务注解，需要此处添加该注解，mysql必须是innodb,service不能try;
+@MapperScan(basePackages = "com.kpttech.mapper")
 @ServletComponentScan
 public class Application {
-
+	
 	/**
 	 * 日期传出去转换
 	 * @return

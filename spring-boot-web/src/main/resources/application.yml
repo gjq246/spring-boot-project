@@ -4,6 +4,9 @@ logging:
   level:
     tk:
       mybatis: TRACE
+    com:
+      kpttech:
+        mapper: debug
 spring:
   #静态资源映射，C:/tmp/为百度编辑器上传路径
   mvc:

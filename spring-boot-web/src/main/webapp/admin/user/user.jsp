@@ -67,10 +67,7 @@
 		                           			<button id="btn_add" class="btn btn-primary btn-xs" ng-click="adduser()"><i class="fa fa-plus"></i>&nbsp;添加</button> 
 		           							<button id="btn_edit" class="btn btn-primary btn-xs" ng-click="edituser()"><i class="fa fa-pencil"></i>&nbsp;查看与修改</button>
 		           							<button id="btn_del" class="btn btn-primary btn-xs" ng-click="removeuser()"><i class="fa fa-remove"></i>&nbsp;删除</button>
-		           							<button id="btn_edit" class="btn btn-primary btn-xs" ng-click="modifyPwd()"><i class="fa fa-user"></i>&nbsp;修改密码</button>
-		           							<button id="btn_info" class="btn btn-primary btn-xs" ng-click="info()"><i class="fa fa-th-large"></i>&nbsp;查看详情</button>
-		           							<button id="btn_creview" class="btn btn-primary btn-xs" ng-click="reviewModal()"><i class="fa  fa-wrench"></i>&nbsp;审核</button>
-	            							<button id="btn_plreview" class="btn btn-primary btn-xs" ng-click="lotReviewModal()"><i class="fa  fa-wrench"></i>&nbsp;批量审核</button>
+
 		           							<!-- <button class="btn btn-primary btn-xs"><i class="fa fa-search"></i>&nbsp;高级搜索</button> -->
 		                           		</div>
 		                           		<div style="float:right">

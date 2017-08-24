@@ -10,7 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -145,6 +145,38 @@ public class UserService {
 		}
 		return resultUser;
 		
+	}
+	
+	/*事务测试
+	 * 解决方案： 
+  方案1.例如service层处理事务，那么service中的方法中不做异常捕获，或者在catch语句中最后增加throw new RuntimeException()语句，
+  以便让aop捕获异常再去回滚，并且在service上层（webservice客户端，view层action）要继续捕获这个异常并处理
+  方案2.在service层方法的catch语句中增加：TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+  语句，手动回滚，这样上层就无需去处理异常（现在项目的做法）
+	 * 
+	 * */
+	@Transactional
+	public int transTest(){
+		int resultCode=0;
+		try{
+			Tuser tuser = new Tuser();
+			tuser.setCid("1");
+			tuser.setCusername("1修改");
+			int count = tuserMapper.updateByPrimaryKeySelective(tuser);
+			logger.info("1:"+count);
+			int i=1/0;
+			tuser.setCid("1");
+			tuser.setCusername("2修改");
+			count = tuserMapper.updateByPrimaryKeySelective(tuser);
+			logger.info("2:"+count);
+			resultCode=1;
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			logger.info("err:");
+			throw new RuntimeException();
+		}		
+		return resultCode;
 	}
 
 }

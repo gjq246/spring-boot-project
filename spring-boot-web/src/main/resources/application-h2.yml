@@ -36,9 +36,9 @@ mybatis:
 mapper:
   mappers: com.kpttech.generator.MyMapper
   not-empty: false
-  identity: MYSQL
+  identity: HSQLDB
 pagehelper:
-  helperDialect: mysql
+  helperDialect: hsqldb
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql

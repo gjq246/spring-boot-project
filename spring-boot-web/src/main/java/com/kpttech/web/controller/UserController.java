@@ -142,5 +142,31 @@ public class UserController {
 		}
 		return j;
 	}
+	
+	/* 修改数据 */
+	@RequestMapping("/user/transtest.action")
+	@ResponseBody
+	public Json transTest(HttpServletRequest request, User user) {
+		Json j = new Json();
+		try {
+//			String token = request.getParameter("token");
+//			if (token != null && !token.isEmpty()) {
+
+				int count = userService.transTest();
+				if (count == 1) {
+					j.setSuccess(true);
+					j.setMsg("事务修改成功");
+				} else {
+					j.setSuccess(false);
+					j.setMsg("事务修改失败");
+				}
+//			}
+
+		} catch (Exception e) {
+			j.setSuccess(false);
+			j.setMsg(e.getMessage());
+		}
+		return j;
+	}
 
 }
