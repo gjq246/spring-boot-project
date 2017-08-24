@@ -10,9 +10,12 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.code.kaptcha.Producer;
+import com.kpttech.common.pojo.Json;
+import com.kpttech.pagepojo.User;
 import com.kpttech.service.RedisService;
 
 
@@ -28,6 +31,29 @@ public class CaptchaController {
 	
 	@Autowired  
     private Producer captchaProducer = null;  
+	
+	/* redis测试 */
+	@RequestMapping("/doNotNeedSession/redistest.action")
+	@ResponseBody
+	public Json RedisTest(HttpServletRequest request, User user) {
+		Json j = new Json();
+		try {
+			// String token = request.getParameter("token");
+			// if (token != null && !token.isEmpty()) {
+
+			jedisClient.setKey("UserSessionKey:1", "john",10);
+
+			j.setSuccess(true);
+			j.setObj(jedisClient.getValue("UserSessionKey:1"));
+			j.setMsg("成功");
+
+			// }
+		} catch (Exception e) {
+			j.setSuccess(false);
+			j.setMsg(e.getMessage());
+		}
+		return j;
+	}
 	
 	@RequestMapping("/doNotNeedSession/validcode.action") 
     public ModelAndView getKaptchaImage(HttpServletRequest request, HttpServletResponse response) throws Exception {  

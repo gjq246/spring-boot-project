@@ -20,9 +20,6 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
-
-	@Autowired
-	private RedisService redisService;
 	
 	/* 获取DataTable的数据 */
 	@RequestMapping("/user/getdatatable.action")
@@ -168,27 +165,6 @@ public class UserController {
 		return j;
 	}
 	
-	/* redis测试 */
-	@RequestMapping("/user/redistest.action")
-	@ResponseBody
-	public Json RedisTest(HttpServletRequest request, User user) {
-		Json j = new Json();
-		try {
-			// String token = request.getParameter("token");
-			// if (token != null && !token.isEmpty()) {
-
-			redisService.setKey("name", "john",10);
-
-			j.setSuccess(true);
-			j.setObj(redisService.getValue("name"));
-			j.setMsg("成功");
-
-			// }
-		} catch (Exception e) {
-			j.setSuccess(false);
-			j.setMsg(e.getMessage());
-		}
-		return j;
-	}
+	
 
 }

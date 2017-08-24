@@ -154,8 +154,7 @@
                     <groupId>javax.servlet</groupId>  
                 </exclusion>  
             </exclusions>  
-        </dependency> 
-        
+        </dependency>        
         
         <!-- 内存数据库h2 -->
 		<dependency>

@@ -19,7 +19,13 @@ public class RedisService {
     }
 
     public String getValue(String key){
-        ValueOperations<String, String> ops = this.template.opsForValue();
-        return ops.get(key);
+    	try{
+    		ValueOperations<String, String> ops = this.template.opsForValue();
+            return ops.get(key);
+    	}catch (Exception e) {
+			// TODO: handle exception
+    		return null;
+		}
+        
     }
 }
