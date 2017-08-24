@@ -101,4 +101,25 @@ public class CaptchaController {
 //	4.controller中取得校验码
 //	String kaptchaExpected = (String) request.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);  
 	
+	/*跨域测试*/
+	//http://localhost:8002/cross/crosstest.action
+	@RequestMapping("/cross/crosstest.action")
+	@ResponseBody
+	public Json crossTest(HttpServletRequest request, User user) {
+		Json j = new Json();
+		try {
+			// String token = request.getParameter("token");
+			// if (token != null && !token.isEmpty()) {
+
+			j.setSuccess(true);
+			j.setObj("ok");
+			j.setMsg("成功");
+
+			// }
+		} catch (Exception e) {
+			j.setSuccess(false);
+			j.setMsg(e.getMessage());
+		}
+		return j;
+	}
 }

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -50,5 +51,15 @@ public class PropertiesConfig extends WebMvcConfigurerAdapter {
 		registry.addInterceptor(adminInterceptor).addPathPatterns("/**").excludePathPatterns("/doNotNeedSession/**").excludePathPatterns("/cross/**");
 		super.addInterceptors(registry);
 	}
+	
+	@Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/fileupload/*").allowedOrigins("*")
+                .allowedMethods("GET", "HEAD", "POST","PUT", "DELETE", "OPTIONS");
+                //.allowCredentials(false).maxAge(3600);
+        registry.addMapping("/cross/*").allowedOrigins("*")
+        .allowedMethods("GET", "HEAD", "POST","PUT", "DELETE", "OPTIONS");
+        //.allowCredentials(false).maxAge(3600);
+    }
 
 }
