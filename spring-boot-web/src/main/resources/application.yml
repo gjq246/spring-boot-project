@@ -28,6 +28,17 @@ spring:
       max-active: 20
       test-on-borrow: true
       stat-view-servlet.allow: true
+      
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: Kpttech!#350108
+    timeout: 0
+    pool:
+       max-active: 8
+       max-wait: -1
+       max-idle: 500
+       min-idle: 0
    
   freemarker:
     cache: false

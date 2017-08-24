@@ -1,19 +1,15 @@
 package com.kpttech.web.controller;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.kpttech.common.pojo.DataTableResult;
 import com.kpttech.common.pojo.Json;
 import com.kpttech.pagepojo.User;
+import com.kpttech.service.RedisService;
 import com.kpttech.service.UserService;
 
 
@@ -24,6 +20,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private RedisService redisService;
 	
 	/* 获取DataTable的数据 */
 	@RequestMapping("/user/getdatatable.action")
@@ -143,7 +142,7 @@ public class UserController {
 		return j;
 	}
 	
-	/* 修改数据 */
+	/* 事务测试数据 */
 	@RequestMapping("/user/transtest.action")
 	@ResponseBody
 	public Json transTest(HttpServletRequest request, User user) {
@@ -162,6 +161,29 @@ public class UserController {
 				}
 //			}
 
+		} catch (Exception e) {
+			j.setSuccess(false);
+			j.setMsg(e.getMessage());
+		}
+		return j;
+	}
+	
+	/* redis测试 */
+	@RequestMapping("/user/redistest.action")
+	@ResponseBody
+	public Json RedisTest(HttpServletRequest request, User user) {
+		Json j = new Json();
+		try {
+			// String token = request.getParameter("token");
+			// if (token != null && !token.isEmpty()) {
+
+			redisService.setKey("name", "john",10);
+
+			j.setSuccess(true);
+			j.setObj(redisService.getValue("name"));
+			j.setMsg("成功");
+
+			// }
 		} catch (Exception e) {
 			j.setSuccess(false);
 			j.setMsg(e.getMessage());

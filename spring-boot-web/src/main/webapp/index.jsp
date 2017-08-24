@@ -82,8 +82,8 @@
 
 	<jsp:include page="/incjs.jsp" />
 	<!-- Angularjs Custom -->
-    <script src="<%=contextPath%>/jslib/app/controller/loginController.js"></script>
-	<script src="<%=contextPath%>/jslib/app/service/loginService.js"></script>
-	<script src="<%=contextPath%>/jslib/app/service/departmentworkflowService.js"></script>
+     <script src="<%=contextPath%>/jslib/app/controller/loginController.js"></script>
+<%--	<script src="<%=contextPath%>/jslib/app/service/loginService.js"></script>
+	<script src="<%=contextPath%>/jslib/app/service/departmentworkflowService.js"></script> --%>
 </body>
 </html>

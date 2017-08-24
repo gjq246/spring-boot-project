@@ -135,6 +135,28 @@
         </dependency>
         <!-- jsp支持 -->
         
+        <!-- redis支持 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!-- redis支持 -->
+        
+        <!-- 验证码支持 -->
+        <dependency>  
+            <groupId>com.github.penggle</groupId>  
+            <artifactId>kaptcha</artifactId>  
+            <version>2.3.2</version>  
+              
+            <exclusions>  
+                <exclusion>  
+                    <artifactId>javax.servlet-api</artifactId>  
+                    <groupId>javax.servlet</groupId>  
+                </exclusion>  
+            </exclusions>  
+        </dependency> 
+        
+        
         <!-- 内存数据库h2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
