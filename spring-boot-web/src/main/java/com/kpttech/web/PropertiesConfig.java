@@ -52,6 +52,7 @@ public class PropertiesConfig extends WebMvcConfigurerAdapter {
 		super.addInterceptors(registry);
 	}
 	
+	/*跨域设置*/
 	@Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/fileupload/*").allowedOrigins("*")
