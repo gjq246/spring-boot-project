@@ -7,6 +7,12 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Repository;
 
+/**
+ * redis访问接口
+ * @author GJQ
+ *
+ */
+
 @Repository
 public class RedisService {
 

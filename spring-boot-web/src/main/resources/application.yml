@@ -7,7 +7,23 @@ logging:
     com:
       kpttech:
         mapper: debug
-spring:
+        
+# SOLR (SolrProperties)
+solr:
+  url: http://121.196.201.255:8080/solr/review
+#solrReview.url=http://127.0.0.1:8983/review
+  maxRetries: 1
+  connectionTimeout: 500
+  
+spring:       
+## SOLR (SolrProperties)
+#  data:
+#    solr:
+#      host: http://121.196.201.255:8080/solr/thesis
+##spring.data.solr.zkHost=
+#      repositories:
+#        enabled: true
+
   #静态资源映射，C:/tmp/为百度编辑器上传路径
   mvc:
     static-path-pattern: /**
