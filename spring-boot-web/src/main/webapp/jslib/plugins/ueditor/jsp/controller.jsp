@@ -13,6 +13,19 @@ response.addHeader("Access-Control-Allow-Headers", "X-Requested-With,X_Requested
 	
 	String rootPath = application.getRealPath( "/" );
 	
+	System.out.println("rootPath:"+application.getRealPath( "/" ));
+	System.out.println("contextPath:"+request.getContextPath());
+	System.out.println("getRequestURI:"+request.getRequestURI());
+					
+	/*
+	this.request = request;
+	this.rootPath = rootPath;
+	this.actionType = request.getParameter( "action" );
+	this.contextPath = request.getContextPath();
+	this.configManager = ConfigManager.getInstance( this.rootPath, this.contextPath, request.getRequestURI() );
+	*/
+	
+	
 	out.write( new ActionEnter( request, rootPath ).exec() );
 	
 %>

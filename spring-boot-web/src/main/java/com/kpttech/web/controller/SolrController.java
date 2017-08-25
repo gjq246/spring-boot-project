@@ -16,12 +16,12 @@ import com.kpttech.pagepojo.ReviewItem;
 import com.kpttech.service.SolrReviewService;
 
 @Controller
-public class solrController {
+public class SolrController {
 	
 	@Autowired
 	private SolrReviewService solrReviewService;
 	
-	private static final Logger logger = Logger.getLogger(solrController.class);
+	private static final Logger logger = Logger.getLogger(SolrController.class);
 	
 	/* solr测试 */
 	@RequestMapping("/doNotNeedSession/solrtest.action")

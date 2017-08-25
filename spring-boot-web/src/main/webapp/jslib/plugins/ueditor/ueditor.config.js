@@ -31,10 +31,10 @@
         UEDITOR_HOME_URL: URL
 
         // 服务器统一请求接口路径
-//        , serverUrl: URL + "jsp/controller.jsp"
+        , serverUrl: URL + "jsp/controller.jsp"
         //"src/main/webapp/jslib/plugins/ueditor/jsp/controller.jsp"
         //跨域不支持单图上传
-        , serverUrl: "http://172.16.224.4:8081/manager/jslib/plugins/ueditor/jsp/controller.jsp"
+//        , serverUrl: "jslib/plugins/ueditor/jsp/controller.jsp"
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的重新定义
         , toolbars: [[
@@ -65,7 +65,7 @@
         //,theme:'default'
         //,themePath:URL +"themes/"
 
-        //,zIndex : 900     //编辑器层级的基数,默认是900
+        ,zIndex : 9999     //编辑器层级的基数,默认是900
 
         //针对getAllHtml方法，会在对应的head标签中增加该编码设置。
         //,charset:"utf-8"

@@ -28,37 +28,37 @@ public class AdminInterceptor implements HandlerInterceptor {
 	//3.http://localhost:8002/user/getsingleuser.action?cid=1&token=1
 	// 拦截前处理
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object obj) throws Exception {
-		logger.info("AdminInterceptor>>>>>preHandle");
-		String token=request.getParameter("token");		
-		if(StringUtils.isEmpty(token) ){
-			try {
-				String r = "{\"msg\":\"未登录！Token为空！\",\"success\":false,\"islogin\":false}";
-				response.setContentType("text/html;charset=utf-8");
-				response.getWriter().write(r);
-				response.getWriter().flush();
-				response.getWriter().close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			return false;
-			
-		}else{
-			logger.info(token);
-			String sessionStr = jedisClient.getValue("UserSessionKey:"+token);
-			if(StringUtils.isEmpty(sessionStr)){
-				try {
-					String r = "{\"msg\":\"未登录！Redis为空！\",\"success\":false,\"islogin\":false}";
-					response.setContentType("text/html;charset=utf-8");
-					response.getWriter().write(r);
-					response.getWriter().flush();
-					response.getWriter().close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				return false;
-				
-			}
-		}
+//		logger.info("AdminInterceptor>>>>>preHandle");
+//		String token=request.getParameter("token");		
+//		if(StringUtils.isEmpty(token) ){
+//			try {
+//				String r = "{\"msg\":\"未登录！Token为空！\",\"success\":false,\"islogin\":false}";
+//				response.setContentType("text/html;charset=utf-8");
+//				response.getWriter().write(r);
+//				response.getWriter().flush();
+//				response.getWriter().close();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//			return false;
+//			
+//		}else{
+//			logger.info(token);
+//			String sessionStr = jedisClient.getValue("UserSessionKey:"+token);
+//			if(StringUtils.isEmpty(sessionStr)){
+//				try {
+//					String r = "{\"msg\":\"未登录！Redis为空！\",\"success\":false,\"islogin\":false}";
+//					response.setContentType("text/html;charset=utf-8");
+//					response.getWriter().write(r);
+//					response.getWriter().flush();
+//					response.getWriter().close();
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//				return false;
+//				
+//			}
+//		}
 
 		return true;
 	}

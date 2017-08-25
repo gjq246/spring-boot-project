@@ -32,5 +32,10 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="E:/ssm/spring-boot-project/spring-boot-web/src/main/libs/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="E:/ssm/spring-boot-project/spring-boot-web/src/main/libs/commons-fileupload-1.3.1.jar"/>
+	<classpathentry kind="lib" path="E:/ssm/spring-boot-project/spring-boot-web/src/main/libs/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="E:/ssm/spring-boot-project/spring-boot-web/src/main/libs/json.jar"/>
+	<classpathentry kind="lib" path="E:/ssm/spring-boot-project/spring-boot-web/src/main/libs/ueditor-1.1.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
