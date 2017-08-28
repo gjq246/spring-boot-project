@@ -8,6 +8,11 @@ logging:
       kpttech:
         mapper: debug
         
+##file max size  
+#multipart:
+#  maxFileSize: 100Mb  
+#  maxRequestSize: 100Mb 
+            
 # SOLR (SolrProperties)
 solr:
   url: http://121.196.201.255:8080/solr/review

@@ -1,11 +1,15 @@
 package com.kpttech.web;
 
+import javax.servlet.MultipartConfigElement;
+
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
+import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -15,6 +19,7 @@ import com.kpttech.common.utils.MappingFastJsonHttpMessageConverter;
 @EnableTransactionManagement//如果mybatis中service实现类中加入事务注解，需要此处添加该注解，mysql必须是innodb,service不能try;
 @MapperScan(basePackages = "com.kpttech.mapper")
 @ServletComponentScan
+@Configuration
 public class Application {
 	
 	/**
@@ -28,10 +33,26 @@ public class Application {
 		return new HttpMessageConverters(converter);
 	}
 	
+	/**  
+     * 文件上传配置  
+     * @return  
+     */  
+    @Bean  
+    public MultipartConfigElement multipartConfigElement() {  
+        MultipartConfigFactory factory = new MultipartConfigFactory();  
+        //单个文件最大  
+        factory.setMaxFileSize("10240KB"); //KB,MB  
+        /// 设置总上传数据总大小  
+        factory.setMaxRequestSize("102400KB");  
+        return factory.createMultipartConfig();  
+    }  
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SpringApplication.run(Application.class, args);
 	}
+	
+	
 
 //安全传输协议
 
