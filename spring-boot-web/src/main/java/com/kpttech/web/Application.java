@@ -23,7 +23,7 @@ import com.kpttech.common.utils.MappingFastJsonHttpMessageConverter;
 public class Application {
 	
 	/**
-	 * 日期传出去转换
+	 * 日期传出去转换,请使用1.2.15+版本,使用FastJsonHttpMessageConverter时Swagger2失效的办法
 	 * @return
 	 */
 	@Bean

@@ -71,6 +71,7 @@ public class MappingFastJsonHttpMessageConverter extends AbstractHttpMessageConv
 //			ServletActionContext.getResponse().addHeader("Access-Control-Allow-Headers", "X-Requested-With");
 //			ServletActionContext.getResponse().setContentType("text/html;charset=utf-8");
 //	    	System.out.println("fastjson");
+	    	//String jsonString = JSON.toJSONStringWithDateFormat(o, "yyyy-MM-dd HH:mm:ss");
 	        String jsonString = JSON.toJSONStringWithDateFormat(o, "yyyy-MM-dd HH:mm:ss",SerializerFeature.WriteMapNullValue,SerializerFeature.WriteNullNumberAsZero,SerializerFeature.WriteNullListAsEmpty,SerializerFeature.WriteNullStringAsEmpty,SerializerFeature.WriteNullBooleanAsFalse,SerializerFeature.WriteTabAsSpecial);//JSON.toJSONString(o, serializerFeature);
 	        //JSON.toJSONStringWithDateFormat(object, "yyyy-MM-dd HH:mm:ss",SerializerFeature.WriteMapNullValue,SerializerFeature.WriteNullNumberAsZero,SerializerFeature.WriteNullListAsEmpty,SerializerFeature.WriteNullStringAsEmpty,SerializerFeature.WriteNullBooleanAsFalse,SerializerFeature.WriteSlashAsSpecial,SerializerFeature.WriteTabAsSpecial);
 	        OutputStream out = outputMessage.getBody();
