@@ -7,7 +7,12 @@ logging:
     com:
       kpttech:
         mapper: debug
-        
+#微信配置信息
+wx:
+  appID: wxc3e4315befae09b1
+  appsecret: 08e1f20651386cca42d837b1fc37b952
+  returnUrl: http://bsto.kpttech.com/index.jsp
+          
 ##file max size  
 #multipart:
 #  maxFileSize: 100Mb  
