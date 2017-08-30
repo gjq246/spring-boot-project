@@ -30,6 +30,9 @@
 4.百度编辑器：http://localhost:8002/jslib/plugins/ueditor/index.html
 ![百度编辑器测试](https://github.com/gjq246/spring-boot-project/raw/master/screenshot/ueditor.png)  
 
+5.api文档：http://localhost:8002/swagger-ui.html
+![api文档测试](https://github.com/gjq246/spring-boot-project/raw/master/screenshot/swagger.png) 
+
 ## Mapper代码生成
 在`spring-boot-mapperpojo`项目中,配置好`src/main/resources/generator/generatorConfig.xml`配置文件中的包名和路径，为了避免被重复覆盖，在mapper的java和xml文件导出路径中加了mappertemp目录，此目录仅作导出存储，需要手工复制一份到mapper路径。导出时采用`mvn mybatis-generator:generate`，如果是用maven build...菜单只要输入`mybatis-generator:generate`
 
