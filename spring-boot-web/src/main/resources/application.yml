@@ -7,6 +7,13 @@ logging:
     com:
       kpttech:
         mapper: debug
+security:
+  basic:
+    path: /swagger-ui.html
+    enabled: true
+  user:
+    name: gjq
+    password: gjq
 #微信配置信息
 wx:
   appID: wxc3e4315befae09b1
