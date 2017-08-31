@@ -4,6 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,7 +44,7 @@ http://localhost:8002/swagger-ui.html
 
 @Api(value="用户操作类",produces = "application/json")
 @Controller
-@RequestMapping(method = RequestMethod.POST)
+//@RequestMapping(method = RequestMethod.POST)
 public class UserController {
 	
 	private static final Logger logger = Logger.getLogger(UserController.class);
@@ -69,6 +72,8 @@ public class UserController {
 	}
 	
 	/* 获取单个User信息 */
+	//@Cacheable缓存key为user 的cid 数据到缓存user 中,如果没有指定key则方法参数作为key保存到缓存中。
+    @Cacheable(value = "user", key = "#user.cid")
 	@ApiOperation(value="获取单个User信息", notes="获取单个User信息")
 	@RequestMapping("/user/getsingleuser.action")
 	@ResponseBody
@@ -92,6 +97,8 @@ public class UserController {
 		return json;
 	}
 	/* 添加数据 */
+	//@CachePut缓存新增的或更新的数据到缓存,其中缓存名字是 user 。数据的key是user的cid
+    @CachePut(value = "user", key = "#user.cid")
 	@ApiOperation(value="添加数据", notes="添加数据")
 	@RequestMapping("/user/add.action")
 	@ResponseBody
@@ -119,6 +126,8 @@ public class UserController {
 	}
 
 	/* 修改数据 */
+  //@CachePut缓存新增的或更新的数据到缓存,其中缓存名字是 user 。数据的key是user的cid
+    @CachePut(value = "user", key = "#user.cid")
 	@ApiOperation(value="修改用户数据", notes="根据参数中的cid来修改用户数据")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "cid", value = "用户ID", required = true ),
@@ -150,6 +159,8 @@ public class UserController {
 	}
 
 	/* 删除数据 */
+	//@CacheEvict 从缓存user中删除key为cid 的数据，？？？
+    @CacheEvict(value = "user")
 	@RequestMapping("/user/delete.action")
 	@ApiOperation(value="删除数据", notes="根据参数中的ids来删除用户数据")
 	@ResponseBody

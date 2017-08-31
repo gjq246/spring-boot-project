@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -20,6 +21,7 @@ import com.kpttech.common.utils.MappingFastJsonHttpMessageConverter;
 @MapperScan(basePackages = "com.kpttech.mapper")
 @ServletComponentScan
 @Configuration
+@EnableCaching
 public class Application {
 	
 	/**
